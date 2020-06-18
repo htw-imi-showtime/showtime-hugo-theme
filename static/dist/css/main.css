@@ -6,7 +6,7 @@
     /* Colors */
     --accent-color: #76B900;
     --light-gray: #dddddd;
-    --dark-gray: #888888;
+    --dark-gray: #666666;
 
     /* Sizes */
     --inset: 1rem;
@@ -60,7 +60,7 @@ footer a {
     text-decoration: none;
 }
 
-footer a:last-of-type {
+footer section:last-child a:last-child {
     margin-left: 1.5rem;
 }
 
@@ -108,4 +108,21 @@ footer a:last-of-type {
 
 .card p {
     margin: 1rem;
+}
+
+
+/**********/
+/* Figure */
+/**********/
+figure {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    color: var(--dark-gray);
+    font-style: italic;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
 }
