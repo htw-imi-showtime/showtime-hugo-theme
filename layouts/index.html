@@ -1,0 +1,13 @@
+{{ define "main" }}
+    {{ .Content }}
+    <section class="card-container">
+        {{ range sort (where .Site.RegularPages "Section" "!=" "") "Title" }}
+            <a href="{{ .Permalink }}" class="card">
+                <img src="images/placeholder.png" alt="{{ .Title }}">
+                <h2>{{ .Title }}</h2>
+                <span>{{ .Type }}</span>
+                <p>{{ .Summary }}</p>
+            </a>
+        {{ end }}
+    </section>
+{{ end }}

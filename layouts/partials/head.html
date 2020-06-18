@@ -1,0 +1,13 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {{ if .Site.Params.Author }}
+  <meta name="author" content="{{ .Site.Params.Author }}" />
+  {{ end }}
+  {{ if .Site.Params.Description }}
+  <meta name="description" content="{{ .Site.Params.Description }}" />
+  {{ end }}
+  <title>{{ .Site.Title }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="{{ "dist/css/main.css" | relURL }}" rel="stylesheet" />
+</head>

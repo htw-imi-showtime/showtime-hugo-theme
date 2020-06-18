@@ -1,0 +1,8 @@
+<header>
+    <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    <nav>
+        {{ range .Site.Sections }}
+            <a href="{{ .Permalink }}">{{ trim .Title "s" | upper }}</a>
+        {{ end }}
+    </nav>
+</header>

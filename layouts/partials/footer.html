@@ -1,0 +1,10 @@
+<footer>
+    <section>
+        <span>&copy; 2020 {{ .Site.Params.Author }}</span>
+    </section>
+    <section>
+        {{ range where .Site.RegularPages "Section" "" }}
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ end }}
+    </section>
+</footer>
