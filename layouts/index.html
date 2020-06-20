@@ -1,12 +1,13 @@
 {{ define "main" }}
     {{ .Content }}
     <section class="card-container">
-        {{ range sort (where .Site.RegularPages "Section" "!=" "") "Title" }}
+        {{ $current_semester := where .Site.Pages "Section" .Site.Params.currentSemester }}
+        {{ range sort (where (where $current_semester "Kind" "section") "Type" "!=" .Site.Params.currentSemester) "Title" }}
             <a href="{{ .Permalink }}" class="card">
-                <img src="{{ if .Params.card_image }}{{ print .File.Dir (.Resources.GetMatch .Params.card_image) }}{{ else }}images/placeholder.png{{ end }}" alt="{{ .Title }}">
+                <img src="{{ if .Params.card_image }}{{ (.Resources.GetMatch .Params.card_image).RelPermalink }}{{ else }}images/placeholder.png{{ end }}" alt="{{ .Title }}">
                 <h2>{{ .Title }}</h2>
                 <span>{{ .Type }}</span>
-                <p>{{ .Summary }}</p>
+                <p>{{ .Params.card_description }}</p>
             </a>
         {{ end }}
     </section>
