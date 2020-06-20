@@ -5,16 +5,12 @@
     {{ else }}
         {{ $video.Set "src" ($.Page.Parent.Resources.GetMatch (.Get "src")) }}
     {{ end }}
-    {{ $video.Set "image" (.Get "image") }}
-    {{ $video.Set "description" (.Get "description") }}
 {{ else }}
     {{ if $.Page.Resources.GetMatch (.Get 0) }}
         {{ $video.Set "src" ($.Page.Resources.GetMatch (.Get 0)) }}
     {{ else }}
         {{ $video.Set "src" ($.Page.Parent.Resources.GetMatch (.Get 0)) }}
     {{ end }}
-    {{ $video.Set "image" (.Get 1) }}
-    {{ $video.Set "description" (.Get 2) }}
 {{ end }}
 
 <video controls>
