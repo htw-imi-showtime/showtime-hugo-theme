@@ -146,17 +146,22 @@ video, iframe {
 /*****************************/
 /* Source, Demo and Web Link */
 /*****************************/
-.link {
-    color: var(--gray);
-    margin: 0.5rem 0 0 1.5rem;
+.links {
+    display: flex;
     float: right;
 }
 
-.link svg {
+.links a {
+    color: var(--gray);
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.links svg {
     max-height: 2.3rem;
     max-width: 3.5rem;
     fill: var(--accent-color);
-    display: block;
     margin: 0.5rem auto;
 }
 
@@ -198,5 +203,28 @@ h1 {
 
     .link {
         color: var(--light-gray);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card span {
+        float: none;
+        display: inline-block;
+        margin-top: 1rem;
+    }
+
+    .links {
+        float: none;
+        margin-bottom: 2rem;
+    }
+
+    .links a {
+        margin-left: 0;
+        margin-right: 1.5rem;
+    }
+
+    .links svg {
+        max-height: 1.5rem;
+        max-width: 2rem;
     }
 }
