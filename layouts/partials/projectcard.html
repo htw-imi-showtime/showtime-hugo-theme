@@ -1,0 +1,6 @@
+<a href="{{ .Permalink }}" class="card">
+    <img src="{{ if (and .Params.card_image (.Resources.GetMatch .Params.card_image)) }}{{ (.Resources.GetMatch .Params.card_image).RelPermalink }}{{ else }}images/placeholder.png{{ end }}" alt="{{ .Title }}">
+    <h2>{{ .Title }}</h2>
+    <span>{{ .Type }}</span>
+    <p>{{ .Params.card_description }}</p>
+</a>

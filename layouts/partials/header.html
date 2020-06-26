@@ -1,8 +1,16 @@
 <header>
-    <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
     <nav>
-        {{ range .Site.Sections }}
-            <a href="{{ .Permalink }}">{{ trim .Title "s" | upper }}</a>
-        {{ end }}
+        <span>
+            {{ $semester := (or .Page.Section .Site.Params.current_semester) }}
+            {{ range first 1 (where .Site.Sections "Title" $semester) }}
+                {{ .Params.full_title }}
+            {{ end }}
+        </span>
+        <ul>
+            {{ range .Site.Sections }}
+                <li><a href="{{ .Permalink }}">{{ .Params.full_title }}</a></li>
+            {{ end }}
+        </ul>
     </nav>
 </header>
