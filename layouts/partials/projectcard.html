@@ -1,5 +1,11 @@
 <a href="{{ .Permalink }}" class="card">
-    <img src="{{ if (and .Params.card_image (.Resources.GetMatch .Params.card_image)) }}{{ (.Resources.GetMatch .Params.card_image).RelPermalink }}{{ else }}images/placeholder.png{{ end }}" alt="{{ .Title }}">
+    {{ $image := newScratch }}
+    {{ if (and .Params.card_image (.Resources.GetMatch .Params.card_image)) }}
+        {{ $image.Set "src" (.Resources.GetMatch .Params.card_image).RelPermalink }}
+    {{ else }}
+        {{ $image.Set "src" (printf "%s/images/placeholder.png" .Site.BaseURL) }}
+    {{ end }}
+    <img src="{{ $image.Get "src" }}" alt="{{ .Title }}">
     <h2>{{ .Title }}</h2>
     <span>{{ .Type }}</span>
     <p>{{ .Params.card_description }}</p>
