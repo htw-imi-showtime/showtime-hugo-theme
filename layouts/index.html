@@ -1,5 +1,6 @@
 {{ define "main" }}
     {{ .Content }}
+    <h2>Projekte</h2>
     <section class="card-container">
         {{ $current_semester := where .Site.Pages "Section" .Site.Params.current_semester }}
         {{ range sort (where (where $current_semester "Kind" "section") "Type" "!=" .Site.Params.current_semester) "Title" }}
