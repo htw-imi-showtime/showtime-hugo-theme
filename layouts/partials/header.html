@@ -4,7 +4,7 @@
         <span>
             {{ $semester := (or .Page.Section .Site.Params.current_semester) }}
             {{ range first 1 (where .Site.Sections "Title" $semester) }}
-                {{ .Params.full_title }}
+                {{ .Params.full_title }} &blacktriangledown;
             {{ end }}
         </span>
         <ul>

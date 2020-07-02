@@ -1,10 +1,10 @@
 {{ define "main" }}
     {{ if eq .Page.Kind "section" }}
         {{ range first 1 (where .Site.Sections "Title" .Page.Section) }}
-            <a href="{{ .RelPermalink }}">&#8592; {{ .Params.full_title }}</a>
+            <a href="{{ .RelPermalink }}">&leftarrow; {{ .Params.full_title }}</a>
         {{ end }}
     {{ else }}
-        <a href="{{ .Page.Parent.RelPermalink }}">&#8592; {{ .Page.Parent.Title }}</a>
+        <a href="{{ .Page.Parent.RelPermalink }}">&leftarrow; {{ .Page.Parent.Title }}</a>
     {{ end }}
     <div>
         <h1>{{ .Title }}</h1>

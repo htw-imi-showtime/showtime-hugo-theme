@@ -1,11 +1,14 @@
 {{ define "main" }}
-    <h1>{{ .Params.full_title }}</h1>
-    {{ .Content }}
-    <section class="card-container">
-        {{ $semester := where .Site.Pages "Section" .Title }}
-        <!-- Show all project pages (Kind section), but exclude the semester main page (Type != .Title) -->
-        {{ range sort (where (where $semester "Kind" "section") "Type" "!=" .Title) "Title" }}
-            {{- partial "projectcard.html" . -}}
-        {{ end }}
-    </section>
+    <a href="{{ .Site.BaseURL }}">&leftarrow; Zur Startseite</a>
+    <div>
+        <h1>{{ .Params.full_title }}</h1>
+        {{ .Content }}
+        <section class="card-container">
+            {{ $semester := where .Site.Pages "Section" .Title }}
+            <!-- Show all project pages (Kind section), but exclude the semester main page (Type != .Title) -->
+            {{ range sort (where (where $semester "Kind" "section") "Type" "!=" .Title) "Title" }}
+                {{- partial "projectcard.html" . -}}
+            {{ end }}
+        </section>
+    </div>
 {{ end }}
