@@ -322,6 +322,10 @@ h1 {
     header ul {
         filter: drop-shadow(0 0 10px var(--black));
     }
+
+    tr:nth-child(even) {
+        background-color: var(--gray);
+    }
 }
 
 @media screen and (max-width: 480px) {
