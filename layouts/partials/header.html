@@ -1,5 +1,8 @@
 <header>
-    <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+    <h1>
+        <img src="{{ .Site.BaseURL }}/images/imi.svg" alt="IMI Logo">
+        <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    </h1>
     <nav>
         <span>
             {{ $semester := (or .Page.Section .Site.Params.current_semester) }}
